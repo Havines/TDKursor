@@ -1,0 +1,301 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/UI/button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/UI/button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Materials/Breathe Fire III.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Sprites/UI/background.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Icons/Kursor.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 71
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 128
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credits/VBoxContainer/CenterContainer/Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HBoxContainer/Main/VBoxContainer/Title/Label:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 100, 32 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credits/VBoxContainer/CenterContainer/Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Title"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/Main/VBoxContainer/Title/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 100, 32 ), Vector2( 100, 64 ), Vector2( 100, 32 ) ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 4 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Buttons" type="Control" parent="HBoxContainer"]
+margin_right = 700.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 700, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/Buttons/VBoxContainer"]
+margin_top = 208.0
+margin_right = 700.0
+margin_bottom = 408.0
+rect_min_size = Vector2( 700, 200 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Buttons/VBoxContainer/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+align = 1
+valign = 1
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/Buttons/VBoxContainer"]
+margin_top = 440.0
+margin_right = 700.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 700, 200 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Buttons/VBoxContainer/TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/Buttons/VBoxContainer"]
+margin_top = 672.0
+margin_right = 700.0
+margin_bottom = 872.0
+rect_min_size = Vector2( 700, 200 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Buttons/VBoxContainer/TextureButton3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+align = 1
+valign = 1
+
+[node name="Main" type="Control" parent="HBoxContainer"]
+margin_left = 704.0
+margin_right = 1924.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 1220, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Main"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="CenterContainer" parent="HBoxContainer/Main/VBoxContainer"]
+margin_right = 1220.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Main/VBoxContainer/Title"]
+margin_left = 100.0
+margin_top = 32.0
+margin_right = 1119.0
+margin_bottom = 167.0
+custom_fonts/font = SubResource( 5 )
+text = "TOWER DEFENCE"
+align = 1
+valign = 1
+
+[node name="Credits" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Credits/VBoxContainer"]
+margin_top = 143.0
+margin_right = 1920.0
+margin_bottom = 696.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits/VBoxContainer"]
+margin_top = 726.0
+margin_right = 1920.0
+margin_bottom = 936.0
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/CenterContainer"]
+margin_left = 809.0
+margin_right = 1110.0
+margin_bottom = 210.0
+text = "Created 
+by
+Kursor Team"
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/Start = SubResource( 7 )
+anims/Title = SubResource( 8 )
+
+[connection signal="pressed" from="HBoxContainer/Buttons/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/VBoxContainer/TextureButton2" to="." method="_on_TextureButton2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/VBoxContainer/TextureButton3" to="." method="_on_TextureButton3_pressed"]
